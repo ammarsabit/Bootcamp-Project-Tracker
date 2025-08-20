@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const Project = mongoose.model(
   "Project",
   new mongoose.Schema({
-    projectTitle: {
+    projectTittle: {
       type: String,
       required: true,
       minlength: 5,

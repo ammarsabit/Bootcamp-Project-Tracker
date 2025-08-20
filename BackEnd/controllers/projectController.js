@@ -22,7 +22,7 @@ export async function createProject(req, res) {
 
   if (error) return res.status(400).send(error.details[0].message);
   let project = new Project({
-    projectTitle: req.body.projectTitle,
+    projectTittle: req.body.projectTittle,
     studentName: req.body.studentName,
     description: req.body.description,
     status: req.body.status,
@@ -41,7 +41,7 @@ export async function updateProject(req, res) {
   const project = await Project.findByIdAndUpdate(
     req.params.id,
     {
-      projectTitle: req.body.projectTitle,
+      projectTittle: req.body.projectTittle,
       studentName: req.body.studentName,
       description: req.body.description,
       status: req.body.status,
