@@ -25,53 +25,57 @@ const ProjectForm = ({ formSubmit }: Props) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div>
+      <div className="grid grid-cols-2 gap-4">
         <div className="mb-3">
-          <label htmlFor="projectTittle" className="form-label">
+          <label htmlFor="projectTittle" className="block text-sm font-medium">
             Project Tittle
           </label>
           <input
             {...register("projectTittle", { required: true })}
             id="projectTittle"
             type="text"
-            className={`form-control`}
+            className="rounded-md m-1 p-1 border border-black/15 sm:text-sm/6 outline-1 -outline-offset-1 outline-white/10 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-500"
             placeholder="E-Commerce"
           />
           {errors.projectTittle?.type === "required" && (
-            <p className="text-danger">Project Title is required</p>
+            <p className="text-red-600 text-xs">Project Title is required</p>
           )}
         </div>
         <div className="mb-3">
-          <label htmlFor="studentName" className="form-label">
+          <label htmlFor="studentName" className="block text-sm/6 font-medium">
             Student Name
           </label>
           <input
             {...register("studentName", { required: true })}
             id="studentName"
             type="text"
-            className={`form-control`}
+            className="rounded-md m-1 p-1 border border-black/15 sm:text-sm/6 outline-1 -outline-offset-1 outline-white/10 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-500"
             placeholder="Ammar Sabit"
           />
           {errors.studentName?.type === "required" && (
-            <p className="text-danger">Student Name is required</p>
+            <p className="text-red-600 text-xs">Student Name is required</p>
           )}
         </div>
         <div className="mb-3">
-          <label htmlFor="projectDescription" className="form-label">
+          <label
+            htmlFor="projectDescription"
+            className="block text-sm/6 font-medium"
+          >
             Project Description
           </label>
           <input
             {...register("projectDescription", { required: true })}
             id="projectDescription"
             type="text"
-            className={`form-control`}
+            placeholder="Description"
+            className="rounded-md m-1 p-1 border border-black/15 sm:text-sm/6 outline-1 -outline-offset-1 outline-white/10 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-500"
           />
           {errors.projectDescription?.type === "required" && (
-            <p className="text-danger">Project Description is required</p>
+            <p className="text-red-600 text-xs">Project Description is required</p>
           )}
         </div>
         <div className="mb-3">
-          <label htmlFor="dueDate" className="form-label">
+          <label htmlFor="dueDate" className="block text-sm/6 font-medium">
             Due Date
           </label>
           <input
@@ -79,26 +83,31 @@ const ProjectForm = ({ formSubmit }: Props) => {
             id="dueDate"
             type="text"
             placeholder="Sep 31"
-            className={`form-control`}
+            className="rounded-md m-1 p-1 border border-black/15 sm:text-sm/6 outline-1 -outline-offset-1 outline-white/10 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-500"
           />
           {errors.dueDate?.type === "required" && (
-            <p className="text-danger">Description is required</p>
+            <p className="text-red-600 text-xs">Description is required</p>
           )}
         </div>
         <div className="mb-3">
-          <label htmlFor="status" className="form-label">
+          <label htmlFor="status" className="block text-sm/6 font-medium">
             Status
           </label>
-          <input
-            {...register("status")}
+          <select
+            {...register("status", { required: true })}
             id="status"
-            type="text"
-            className={`form-control`}
-          />
+            className="w-full rounded-md m-1 p-1 border border-black/15 sm:text-sm/6 outline-1 -outline-offset-1 outline-white/10 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-500"
+          >
+            <option value="inprogress">InProgress</option>
+            <option value="done">Done</option>
+          </select>
         </div>
 
-        <div className="d-flex justify-content-between">
-          <button className="btn btn-lg btn-dark px-4" type="submit">
+        <div className="place-self-center">
+          <button
+            className="px-4 py-1 bg-blue-600 hover:bg-blue-500 rounded-md text-white"
+            type="submit"
+          >
             Submit
           </button>
         </div>

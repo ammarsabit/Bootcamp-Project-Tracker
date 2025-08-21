@@ -11,11 +11,10 @@ interface Project {
 
 interface Props {
   projects: Project[];
-  onDetail: (id: string) => void;
   onToggleStatus: (id: string) => void;
 }
 
-const ProjectList = ({ projects, onDetail, onToggleStatus }: Props) => {
+const ProjectList = ({ projects, onToggleStatus }: Props) => {
   return (
     <div>
       <table>

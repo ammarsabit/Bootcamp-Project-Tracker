@@ -10,10 +10,10 @@ const Project = mongoose.model(
       maxlength: 255,
     },
     studentName: { type: String, required: true, minlength: 5, maxlength: 255 },
-    projectDescription: {
+    description: {
       type: String,
       required: true,
-      minlength: 20,
+      minlength: 5,
       maxlength: 255,
     },
     status: { type: String, required: true, enum: ["done", "inprogress"] },

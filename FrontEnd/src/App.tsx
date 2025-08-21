@@ -29,8 +29,9 @@ function App() {
       .catch((error) => console.log(error));
   }, []);
 
-  function getProjectById(id: string) {
-    return apiClient.get("/projects/" + id).then((res) => res.data);
+  async function getProjectById(id: string) {
+    const res = await apiClient.get("/projects/" + id);
+    return res.data;
   }
 
   function handleCreateProject(project: NewProject) {
@@ -47,10 +48,6 @@ function App() {
         setProjects([...projects, res.data]);
       })
       .catch((error) => console.error(error.response?.data || error.message));
-  }
-
-  function handleDetail(id: string) {
-    console.log(id);
   }
 
   function handleToggleStatus(id: string) {
@@ -91,7 +88,6 @@ function App() {
             <Home
               projects={projects}
               onCreateProject={(data) => handleCreateProject(data)}
-              onDetail={(id) => handleDetail(id)}
               onToggleStatus={(id) => handleToggleStatus(id)}
             />
           }
