@@ -18,16 +18,12 @@ interface Props {
   onToggleStatus: (id: string) => void;
 }
 
-const Home = ({
-  projects,
-  onCreateProject,
-  onToggleStatus,
-}: Props) => {
+const Home = ({ projects, onCreateProject, onToggleStatus }: Props) => {
   return (
     <div className="card">
-      <h2 className="mb-2">Add New Project</h2>
+      <h2 className="text-xl font-medium mb-2">Add New Project</h2>
       <ProjectForm formSubmit={(data) => onCreateProject(data)} />
-      <h2>Current Projects</h2>
+      <h2 className="text-xl font-medium mb-2">Current Projects</h2>
       <ProjectList
         projects={projects}
         onToggleStatus={(id) => onToggleStatus(id)}
