@@ -24,7 +24,7 @@ export async function createProject(req, res) {
   let project = new Project({
     projectTittle: req.body.projectTittle,
     studentName: req.body.studentName,
-    description: req.body.description,
+    projectDescription: req.body.description,
     status: req.body.status,
     dueDate: req.body.dueDate,
   });

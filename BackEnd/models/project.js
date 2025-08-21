@@ -10,7 +10,7 @@ const Project = mongoose.model(
       maxlength: 255,
     },
     studentName: { type: String, required: true, minlength: 5, maxlength: 255 },
-    description: {
+    projectDescription: {
       type: String,
       required: true,
       minlength: 20,

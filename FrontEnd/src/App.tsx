@@ -29,6 +29,10 @@ function App() {
       .catch((error) => console.log(error));
   }, []);
 
+  function getProjectById(id: string) {
+    return apiClient.get("/projects/" + id).then((res) => res.data);
+  }
+
   function handleCreateProject(project: NewProject) {
     const newProject = {
       projectTittle: project.projectTittle,
@@ -70,6 +74,14 @@ function App() {
     });
   }
 
+  function handleDelete(id: string) {
+    const updatedProjects = projects.filter((pr) => pr._id !== id);
+    apiClient
+      .delete("/projects/" + id)
+      .then(() => setProjects(updatedProjects))
+      .catch((err) => console.log(err.response || err.message));
+  }
+
   return (
     <div>
       <Routes>
@@ -84,7 +96,15 @@ function App() {
             />
           }
         />
-        <Route path="/projectDetail/:projectId" element={<ProjectDetail />} />
+        <Route
+          path="/projectDetail/:projectId"
+          element={
+            <ProjectDetail
+              getProjectByID={(id) => getProjectById(id)}
+              onDelete={(id) => handleDelete(id)}
+            />
+          }
+        />
       </Routes>
     </div>
   );
