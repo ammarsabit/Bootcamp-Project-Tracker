@@ -13,6 +13,7 @@ This is a MERN stack project (MongoDB, Express, React, Node.js) that showcases t
 - **Frontend:** React, TypeScript, Vite
 - **Backend:** Node.js, Express
 - **Database:** MongoDB
+- **Styling:** TailwindCSS
 - **API:** RESTful endpoints
 
 ## Screenshots
