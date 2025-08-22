@@ -20,10 +20,10 @@ interface Props {
 
 const Home = ({ projects, onCreateProject, onToggleStatus }: Props) => {
   return (
-    <div className="card">
-      <h2 className="text-xl font-medium mb-2">Add New Project</h2>
+    <div className="flex flex-col justify-center items-center my-8 p-3 mx-auto rounded-md max-w-200 bg-white">
+      <h2 className="text-xl font-medium mb-2 mt-5">Add New Project</h2>
       <ProjectForm formSubmit={(data) => onCreateProject(data)} />
-      <h2 className="text-xl font-medium mb-2">Current Projects</h2>
+      <h2 className="text-xl font-medium mt-2">Current Projects</h2>
       <ProjectList
         projects={projects}
         onToggleStatus={(id) => onToggleStatus(id)}
