@@ -26,7 +26,7 @@ function App() {
       .then((res) => {
         setProjects(res.data);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => setErrors(error.message));
   }, []);
 
   async function getProjectById(id: string) {
@@ -47,7 +47,9 @@ function App() {
       .then((res) => {
         setProjects([...projects, res.data]);
       })
-      .catch((error) => console.error(error.response?.data || error.message));
+      .catch((error) => {
+        setErrors(error.response?.data || error.message);
+      });
   }
 
   function handleToggleStatus(id: string) {
@@ -76,11 +78,12 @@ function App() {
     apiClient
       .delete("/projects/" + id)
       .then(() => setProjects(updatedProjects))
-      .catch((err) => console.log(err.response || err.message));
+      .catch((error) => setErrors(error.message));
   }
 
   return (
     <div>
+      <p className="text-red-500 text-sm">{errors}</p>
       <Routes>
         <Route
           path="/"
